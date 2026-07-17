@@ -23,7 +23,7 @@ export default function Home() {
   const wsRef = useRef<WebSocket | null>(null);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:8001/ws/telemetry");
+    const ws = new WebSocket("wss://predictive-maintenance-mining.onrender.com/ws/telemetry");
     ws.onmessage = (ev) => {
       const data: Machine[] = JSON.parse(ev.data);
       setMachines(data);
